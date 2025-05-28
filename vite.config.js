@@ -7,7 +7,8 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     allowedHosts: [
-      "5173-alexneg-expensetracker-qg4bm53cupw.ws-eu119.gitpod.io",
+      "5173-alexneg-expensetracker-qg4bm53cupw.ws-eu120.gitpod.io",
+      "5173-alexneg-expensetracker-qg4bm53cupw.ws-eu119.gitpod.io"
     ],
   },
 });
