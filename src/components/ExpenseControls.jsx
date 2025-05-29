@@ -1,5 +1,6 @@
 import { React, useState, useRef } from "react";
 import TransactionList from "./TransactionList";
+import BalanceDisplay from "./BalanceDisplay";
 
 const ExpenseControls = () => {
   const [transactions, setTransactions] = useState([]);
@@ -24,33 +25,38 @@ const ExpenseControls = () => {
     });
     descriptionRef.current.value = "";
     amountRef.current.value = "";
-    console.log(newTransaction);
   };
 
   return (
-    <div className="mt-20 border-2">
-      <form onSubmit={addTransaction}>
-        <h1>Add new transaction</h1>
-        <div className="p-4 gap-4 flex flex-col items-center justify-center">
-          <input
-            ref={descriptionRef}
-            className="w-46"
-            type="text"
-            placeholder="Enter description"
-          />
-          <input
-            ref={amountRef}
-            className="w-46"
-            type="text"
-            placeholder="Enter amount"
-          />
-          <button className="border-2 w-46" type="submit">
-            Add
-          </button>
-        </div>
-      </form>
-      <TransactionList items={transactions} />
-    </div>
+    <>
+      <BalanceDisplay transactions={transactions} />
+      <div className="min-h-64 mt-4">
+        <form onSubmit={addTransaction}>
+          {/* <h1>Add new transaction</h1> */}
+          <div className="p-4 gap-4 flex flex-col items-center justify-center">
+            <input
+              ref={descriptionRef}
+              className="w-46 bg-gray-200 outline-0 rounded px-2"
+              type="text"
+              placeholder="Description"
+            />
+            <input
+              ref={amountRef}
+              className="w-46 bg-gray-200 outline-0 rounded px-2"
+              type="text"
+              placeholder="Amount"
+            />
+            <button
+              className="bg-[#7077A1] text-slate-900 font-semibold w-46 h-8 rounded shadow-md"
+              type="submit"
+            >
+              Add transaction
+            </button>
+          </div>
+        </form>
+        <TransactionList transactions={transactions} />
+      </div>
+    </>
   );
 };
 
