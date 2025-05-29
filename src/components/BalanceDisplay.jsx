@@ -2,7 +2,6 @@ import React from "react";
 
 const BalanceDisplay = ({ transactions }) => {
   console.log("Transactions in BalanceDisplay: ", transactions);
-  
 
   const calcBalance = (t) => {
     const total = t.reduce((acc, curr) => acc + curr.amount, 0);
