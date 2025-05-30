@@ -2,18 +2,20 @@ import React from "react";
 
 const TransactionList = ({ transactions }) => {
   return (
-    <div className="border-2 border-amber-400 max-h-[200px] overflow-y-auto">
+    <div className="max-h-[200px] overflow-y-auto text-slate-900 font-medium">
       {transactions.map((item) => (
         <div
           key={item.id}
-          className="border-2 group relative flex  s p-2 mb-2 shadow-md"
+          className="group relative bg-gray-200 p-2 mb-2 shadow-md rounded"
         >
-          <button className="absolute left-2 opacity-0 group-hover:opacity-100 transition">
-            🗑️
-          </button>
-          <div className="flex flex-1 justify-around gap-4">
-            <p>{item.description}</p>
-            <p>${item.amount}</p>
+          <div className="flex justify-between items-center gap-4 pr-18 w-full">
+            <p className="w-0 flex-1 break-words">{item.description}</p>
+            <p className="whitespace-nowrap">${item.amount}</p>
+          </div>
+          {/* Btns */}
+          <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            <button>🗑️</button>
+            <button>✏️</button>
           </div>
         </div>
       ))}
