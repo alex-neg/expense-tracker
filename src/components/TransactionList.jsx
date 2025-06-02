@@ -1,6 +1,6 @@
 import React from "react";
 
-const TransactionList = ({ transactions }) => {
+const TransactionList = ({ transactions, deleteTransaction }) => {
   return (
     <div className="max-h-[200px] overflow-y-auto text-slate-900 font-medium">
       {transactions.map((item) => (
@@ -14,7 +14,13 @@ const TransactionList = ({ transactions }) => {
           </div>
           {/* Btns */}
           <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-            <button>🗑️</button>
+            <button
+              onClick={() => {
+                deleteTransaction(item.id);
+              }}
+            >
+              🗑️
+            </button>
             <button>✏️</button>
           </div>
         </div>

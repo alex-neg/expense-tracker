@@ -27,6 +27,13 @@ const ExpenseControls = () => {
     amountRef.current.value = "";
   };
 
+  const deleteTransaction = (id) => {
+    setTransactions((prev) => {
+      return prev.filter((i) => i.id !== id);
+    });
+    console.log("Deleted: ", id);
+  };
+
   return (
     <>
       <BalanceDisplay transactions={transactions} />
@@ -54,7 +61,10 @@ const ExpenseControls = () => {
             </button>
           </div>
         </form>
-        <TransactionList transactions={transactions} />
+        <TransactionList
+          transactions={transactions}
+          deleteTransaction={deleteTransaction}
+        />
       </div>
     </>
   );
